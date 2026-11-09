@@ -1,0 +1,20 @@
+# Netlify: conecta el repositorio o ejecuta `npx netlify-cli deploy --prod`
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Modelos 3D: tipo MIME correcto (Scene Viewer de Android lo exige) y caché
+[[headers]]
+  for = "/models/*"
+  [headers.values]
+    Content-Type = "model/gltf-binary"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

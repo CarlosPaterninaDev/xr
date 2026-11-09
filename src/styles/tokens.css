@@ -1,0 +1,135 @@
+/* ==========================================================================
+   UNICORSALUD · Design Tokens (extraídos de https://unicorsalud.edu.co/)
+   Corporación Universitaria de Ciencias Empresariales, Educación y Salud
+   Fuente: CSS de Elementor (post-5575, post-86, post-111) + logos oficiales.
+   ========================================================================== */
+
+/* Tipografía: Gotham es la fuente institucional (licenciada). Si está instalada
+   en el equipo se usa; si no, Montserrat (empaquetada vía @fontsource, funciona
+   offline) es el reemplazo geométrico más cercano.
+   Para incrustar Gotham: copia los .ttf a src/assets/fonts/ y añade
+   url("../assets/fonts/Gotham-Bold.ttf") format("truetype") a cada src. */
+@font-face { font-family: "Gotham"; font-weight: 300; src: local("Gotham Light"), local("Gotham-Light"); font-display: swap; }
+@font-face { font-family: "Gotham"; font-weight: 400; src: local("Gotham Book"), local("Gotham-Book"); font-display: swap; }
+@font-face { font-family: "Gotham"; font-weight: 700; src: local("Gotham Bold"), local("Gotham-Bold"); font-display: swap; }
+@font-face { font-family: "Gotham"; font-weight: 900; src: local("Gotham Black"), local("Gotham-Black"); font-display: swap; }
+
+:root {
+  /* ---------- Color · Marca ---------- */
+  --uc-red:            #D71920; /* Rojo institucional web: títulos, divisores, fondos de slide */
+  --uc-red-bright:     #E52832; /* Hover, links activos, subtítulos pequeños */
+  --uc-red-logo:       #E41838; /* Rojo exacto del logo UC horizontal */
+  --uc-red-deep:       #92161D; /* Final de degradado, sombras de color */
+  --uc-red-ink:        #6B0F14; /* Derivado: texto rojo sobre crema / fondos muy oscuros */
+  --uc-red-tint:       #FBE8E9; /* Derivado: fondo suave para chips/alertas */
+
+  /* ---------- Color · Acento ---------- */
+  --uc-yellow:         #FBAF17; /* CTA secundario ("Inscríbete"), destacados puntuales */
+  --uc-orange-glow:    #CC4300; /* Glow de botones (box-shadow) */
+
+  /* ---------- Color · Neutros ---------- */
+  --uc-ink:            #1D1D1B; /* Texto principal / menú */
+  --uc-ink-strong:     #1A1A1A; /* Titulares grandes */
+  --uc-black:          #101010; /* Fondos oscuros */
+  --uc-graphite:       #3C3C3B; /* Subtítulos e iconos */
+  --uc-gray:           #707070; /* Texto secundario, estado activo de menú */
+  --uc-line:           #E4E4E4; /* Bordes, separadores, fondos de bloque */
+  --uc-cream:          #FDFDF2; /* Superficie hover / fondo cálido */
+  --uc-white:          #FFFFFF;
+
+  /* ---------- Semánticos ---------- */
+  --color-bg:          var(--uc-white);
+  --color-surface:     var(--uc-cream);
+  --color-text:        var(--uc-ink);
+  --color-text-muted:  var(--uc-gray);
+  --color-heading:     var(--uc-ink-strong);
+  --color-primary:     var(--uc-red);
+  --color-primary-hover: var(--uc-red-bright);
+  --color-on-primary:  var(--uc-white);
+  --color-accent:      var(--uc-yellow);
+  --color-on-accent:   #000000;
+  --color-border:      var(--uc-line);
+
+  /* ---------- Degradados ---------- */
+  --grad-red:          linear-gradient(0deg, #E52832 0%, #92161D 100%);   /* usado en la web (360deg) */
+  --grad-red-diag:     linear-gradient(135deg, #E52832 0%, #D71920 45%, #92161D 100%);
+  --grad-ink:          linear-gradient(135deg, #1D1D1B 0%, #101010 100%);
+  --grad-photo-scrim:  linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.65) 100%);
+  --grad-red-scrim:    linear-gradient(90deg, rgba(146,22,29,.92) 0%, rgba(215,25,32,.75) 45%, rgba(215,25,32,0) 100%);
+
+  /* ---------- Tipografía ---------- */
+  --font-sans:   "Gotham", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-script: "Allison", "Great Vibes", cursive; /* solo para frases lema tipo "Tu futuro…" */
+
+  --fw-light: 300;
+  --fw-book:  400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold:  700;
+  --fw-black: 900;
+
+  /* Escala web original (px): 9 · 12 · 14 · 15 · 18 · 20 · 25 · 31 · 45 · 80 */
+  /* Escala para slides 1920×1080 (≈ ratio 1.333, base 28px) */
+  --fs-caption:  20px;
+  --fs-small:    24px;
+  --fs-body:     30px;
+  --fs-lead:     38px;
+  --fs-h4:       44px;
+  --fs-h3:       56px;
+  --fs-h2:       76px;
+  --fs-h1:       104px;
+  --fs-display:  160px;
+  --fs-stat:     190px;
+
+  --lh-tight: 1.02;
+  --lh-heading: 1.1;
+  --lh-body: 1.5;
+  --ls-tight: -0.02em;  /* web: -0.8px en titulares */
+  --ls-caps: 0.08em;    /* overlines en MAYÚSCULAS */
+
+  /* ---------- Espaciado (base 4 · web usa 20px como gap) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 20px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 72px;
+  --space-8: 112px;
+  --slide-pad-x: 120px;
+  --slide-pad-y: 96px;
+
+  /* ---------- Radios ---------- */
+  --radius-xs: 3px;
+  --radius-sm: 10px;   /* botones, inputs */
+  --radius-md: 15px;
+  --radius-lg: 20px;   /* tarjetas de programas, imágenes */
+  --radius-xl: 30px;   /* pestañas laterales (0 30px 30px 0) */
+  --radius-pill: 999px;
+
+  /* ---------- Bordes ---------- */
+  --divider-width: 5px;      /* divisor rojo sólido característico */
+  --border-hairline: 1px solid var(--uc-line);
+
+  /* ---------- Sombras ---------- */
+  --shadow-sm:   0 5px 15px rgba(0,0,0,.25);
+  --shadow-md:   0 8px 20px rgba(0,0,0,.30);
+  --shadow-soft: 0 0 10px rgba(0,0,0,.5);
+  --shadow-glow: 0 0 10px 0 #CC4300;
+  --shadow-red:  0 18px 40px -12px rgba(146,22,29,.55);
+
+  /* ---------- Movimiento ---------- */
+  --dur-fast:   300ms;   /* web: transition color .3s */
+  --dur-base:   600ms;
+  --dur-slow:   900ms;
+  --dur-slide:  800ms;
+  --ease-out:   cubic-bezier(.22,1,.36,1);
+  --ease-in-out: cubic-bezier(.65,0,.35,1);
+  --ease-pop:   cubic-bezier(.34,1.56,.64,1);
+  --stagger:    110ms;
+
+  /* ---------- Layout ---------- */
+  --container: 1140px;   /* ancho de contenedor web */
+  --slide-w: 1920px;
+  --slide-h: 1080px;
+}

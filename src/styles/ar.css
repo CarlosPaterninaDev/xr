@@ -1,0 +1,67 @@
+/* Página móvil de la demo de RA (marca Unicorsalud) */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: var(--font-sans);
+  color: var(--uc-ink);
+  background: var(--uc-cream);
+  min-height: 100dvh;
+  display: flex; flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ar-head {
+  background: #fff; border-bottom: 5px solid var(--uc-red);
+  padding: 14px 16px; padding-top: max(14px, env(safe-area-inset-top));
+}
+.ar-logo { height: 40px; width: auto; display: block; }
+
+.ar-main { flex: 1; width: 100%; max-width: 720px; margin: 0 auto; padding: 22px 16px 8px; }
+.uc-overline {
+  font: var(--fw-bold) 12px/1.2 var(--font-sans); letter-spacing: var(--ls-caps); text-transform: uppercase;
+  color: var(--uc-red); margin: 0 0 8px;
+}
+.ar-title { font: var(--fw-bold) clamp(26px, 7vw, 38px)/1.1 var(--font-sans); letter-spacing: var(--ls-tight); margin: 0; color: var(--uc-ink-strong); }
+.ar-title em { font-style: normal; color: var(--uc-red); }
+.ar-lead { font-size: 16px; line-height: 1.5; color: var(--uc-graphite); margin: 10px 0 16px; }
+
+model-viewer {
+  width: 100%; height: min(62dvh, 560px);
+  background: radial-gradient(circle at 50% 40%, #3a3a38, #121212 75%);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+  --poster-color: transparent;
+}
+
+.ar-btn {
+  position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 26px; border: 0; border-radius: var(--radius-sm);
+  background: var(--uc-yellow); color: #000; box-shadow: var(--shadow-sm);
+  font: var(--fw-bold) 17px/1 var(--font-sans); cursor: pointer; white-space: nowrap;
+}
+.ar-btn svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.ar-progress { position: absolute; left: 0; right: 0; top: 0; height: 5px; overflow: hidden; border-radius: var(--radius-lg) var(--radius-lg) 0 0; transition: opacity .4s; }
+.ar-progress span { display: block; height: 100%; background: var(--uc-red); transform: scaleX(0); transform-origin: left; transition: transform .2s; }
+.ar-progress.is-done { opacity: 0; }
+
+.ar-status {
+  margin: 12px 0 0; padding: 12px 14px; border-left: 5px solid var(--uc-red); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--uc-red-tint); color: var(--uc-red-ink); font-size: 14px; line-height: 1.45;
+}
+
+.ar-steps { margin: 18px 0 0; padding: 0; list-style: none; counter-reset: n; display: grid; gap: 12px; }
+.ar-steps li { counter-increment: n; position: relative; padding-left: 40px; font-size: 15px; line-height: 1.45; }
+.ar-steps li::before {
+  content: counter(n); position: absolute; left: 0; top: -2px;
+  width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--uc-red); color: #fff; font-weight: var(--fw-black); font-size: 14px;
+}
+.ar-steps strong { color: var(--uc-ink-strong); }
+
+.ar-foot {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px;
+  padding: 16px; padding-bottom: max(16px, env(safe-area-inset-bottom));
+  font-size: 11px; color: var(--uc-gray);
+}
+.uc-vigilada { font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--uc-red); }

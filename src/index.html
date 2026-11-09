@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Realidad extendida · Unicorsalud</title>
+<link rel="icon" href="./assets/brand/logo-uc-icon.png">
+<!-- Fuentes, tokens y estilos se importan desde main.js (Vite los empaqueta) -->
+</head>
+<body>
+
+<!-- Iconos (sprite SVG): <svg><use href="#i-nombre"/></svg> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-headset" viewBox="0 0 24 24"><path d="M2 9a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-4l-2-3h-4l-2 3H4a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+  <symbol id="i-health" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/><path d="M3.5 12h5l2-3 3 6 2-3h5"/></symbol>
+  <symbol id="i-game" viewBox="0 0 24 24"><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/><path d="M17.3 5H6.7a4 4 0 0 0-4 3.6L2 15a3 3 0 0 0 5.4 2l1.6-2h6l1.6 2A3 3 0 0 0 22 15l-.7-6.4A4 4 0 0 0 17.3 5z"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.910-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 21h14"/><path d="M3 7h18"/><path d="m6 7-3 7a3 3 0 0 0 6 0z"/><path d="m18 7-3 7a3 3 0 0 0 6 0z"/></symbol>
+  <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+  <symbol id="i-glasses" viewBox="0 0 24 24"><circle cx="6" cy="15" r="4"/><circle cx="18" cy="15" r="4"/><path d="M14 15a2 2 0 0 0-4 0"/><path d="M2.5 13 5 7c.7-1.3 1.4-2 3-2"/><path d="M21.5 13 19 7c-.7-1.3-1.5-2-3-2"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol>
+</svg>
+
+<!--
+  Cada slide es un <section class="slide"> hijo directo de .deck__stage.
+  Referencia de clases y atributos: README.md · Notas del orador: tecla N
+-->
+<main class="deck">
+  <div class="deck__stage">
+
+    <!-- ============ 01 · PORTADA ============ -->
+    <section class="slide slide--cover" data-no-chrome>
+      <div class="cover__band" data-anim="grow-y" data-delay="200"></div>
+      <div class="cover__media">
+        <div data-anim="mask"><img src="./assets/img/foto-laboratorio.jpg" alt="Estudiante en un laboratorio" data-anim="kenburns"></div>
+      </div>
+      <div class="cover__text">
+        <img class="cover__logo" src="./assets/brand/logo-uc-horizontal.png" alt="Unicorsalud" data-anim="fade-down">
+        <p class="uc-overline" data-anim="fade-up">Clase · Tecnologías inmersivas</p>
+        <h1 class="uc-title uc-title--xl" data-split>Realidad <em>extendida</em>: aprender haciendo</h1>
+        <hr class="uc-divider" data-anim="grow-x" data-delay="600">
+        <p class="uc-lead" data-anim="fade-up" data-delay="700">Qué es, dónde se usa y cómo aprovecharla de forma responsable</p>
+      </div>
+      <aside class="notes">Presentación breve (≈10 s). Pasar directo a la pregunta de apertura.</aside>
+    </section>
+
+    <!-- ============ 02 · PREGUNTA DE APERTURA (0:00–1:00) ============ -->
+    <section class="slide is-dark" data-transition="zoom">
+      <div class="uc-ring" style="width:1100px;height:1100px;right:-380px;top:-300px" data-anim="spin-slow"></div>
+      <div class="l-stack" style="max-width:1560px">
+        <p class="uc-overline" data-anim="fade-up">Para empezar</p>
+        <h2 class="uc-title uc-title--xl" data-split>¿Cómo podríamos practicar una situación <em>peligrosa</em> sin exponernos al peligro real?</h2>
+        <hr class="uc-divider" data-anim="grow-x" data-delay="900">
+        <p class="uc-lead" style="max-width:none" data-step>Piensa tu respuesta: la retomaremos al final.</p>
+      </div>
+      <aside class="notes"><b>0:00–1:00</b> · Lanzar la pregunta y escuchar UNA respuesta. Conectar: “Eso que describes es justo lo que permite la realidad extendida”. Clic para mostrar la frase final.</aside>
+    </section>
+
+    <!-- ============ 03 · OBJETIVO ============ -->
+    <section class="slide" data-transition="slide">
+      <div class="uc-ring" style="width:720px;height:720px;right:-220px;top:-200px" data-anim="spin-slow"></div>
+      <header class="l-head">
+        <p class="uc-overline" data-anim="fade-up">Objetivo de la clase</p>
+        <h2 class="uc-title" data-anim="fade-up">Al terminar, <em>podrás</em>…</h2>
+        <hr class="uc-divider" data-anim="grow-x">
+      </header>
+      <ol class="uc-list uc-list--num" style="font-size:44px; gap:44px">
+        <li data-anim="slide-right"><strong>Identificar</strong> la realidad aumentada, virtual y mixta</li>
+        <li data-anim="slide-right"><strong>Explicar</strong> un beneficio de XR para aprender</li>
+        <li data-anim="slide-right"><strong>Señalar</strong> un riesgo y cómo usarla con responsabilidad</li>
+      </ol>
+      <footer class="uc-footer"><img src="./assets/brand/logo-uc-icon.png" alt=""><span class="uc-footer__sep"></span><span>Realidad extendida</span></footer>
+      <aside class="notes">Leer los tres verbos: identificar, explicar, señalar. Son exactamente lo que se pedirá en la comprobación final.</aside>
+    </section>
+
+    <!-- ============ 04 · ¿QUÉ ES XR? (1:00–2:15) ============ -->
+    <section class="slide" data-transition="slide">
+      <header class="l-head" style="margin-bottom:0">
+        <p class="uc-overline" data-anim="fade-up">Conceptos fundamentales</p>
+        <h2 class="uc-title" data-anim="fade-up">XR: un término que <em>reúne</em> varias tecnologías</h2>
+        <hr class="uc-divider" data-anim="grow-x">
+      </header>
+      <div class="xr-spectrum">
+        <div class="xr-spectrum__label" data-anim="fade-down">XR · Realidad extendida</div>
+        <div class="xr-spectrum__track">
+          <div class="xr-spectrum__bar" data-anim="grow-x" data-duration="1000"></div>
+          <span class="xr-spectrum__end" data-anim="fade">Entorno real</span>
+          <span class="xr-spectrum__end xr-spectrum__end--right" data-anim="fade">Entorno simulado</span>
+        </div>
+        <div class="l-grid-3">
+          <div class="xr-point" data-step data-anim="fade-up"><span class="xr-point__dot"></span><span class="uc-chip uc-chip--solid">RA</span><h3>Realidad aumentada</h3><p>Añade elementos digitales a tu entorno.</p></div>
+          <div class="xr-point" data-step data-anim="fade-up"><span class="xr-point__dot"></span><span class="uc-chip uc-chip--solid">RM</span><h3>Realidad mixta</h3><p>Integra lo digital con el espacio físico y permite interactuar con ello.</p></div>
+          <div class="xr-point" data-step data-anim="fade-up"><span class="xr-point__dot"></span><span class="uc-chip uc-chip--solid">RV</span><h3>Realidad virtual</h3><p>Te sitúa dentro de un entorno simulado.</p></div>
+        </div>
+      </div>
+      <footer class="uc-footer"><img src="./assets/brand/logo-uc-icon.png" alt=""><span class="uc-footer__sep"></span><span>Realidad extendida</span></footer>
+      <aside class="notes"><b>1:00–2:15</b> · XR es el paraguas. Tres clics: RA (añade), RM (integra e interactúa), RV (sitúa en un entorno simulado), siguiendo la distinción del autor. Insistir: de izquierda a derecha, cada vez hay menos mundo real.</aside>
+    </section>
+
+    <!-- ============ 05 · UNA MISMA AULA (2:15–3:30) ============ -->
+    <section class="slide is-cream" data-transition="up">
+      <header class="l-head">
+        <p class="uc-overline" data-anim="fade-up">Un mismo ejemplo</p>
+        <h2 class="uc-title" data-anim="fade-up">Una misma aula, <em>tres</em> experiencias</h2>
+        <hr class="uc-divider" data-anim="grow-x">
+      </header>
+      <div class="l-grid-3 l-fill" style="align-content:center">
+        <article class="uc-card" data-step data-anim="fade-up">
+          <div class="uc-card__icon"><svg><use href="#i-phone"/></svg></div>
+          <span class="uc-chip">Realidad aumentada</span>
+          <h3 class="uc-card__title">El hombro aparece sobre el pupitre</h3>
+          <p class="uc-card__text">Con el celular, el grupo ve una fractura de hombro en 3D, a escala real, encima de la mesa.</p>
+        </article>
+        <article class="uc-card" data-step data-anim="fade-up">
+          <div class="uc-card__icon"><svg><use href="#i-headset"/></svg></div>
+          <span class="uc-chip">Realidad virtual</span>
+          <h3 class="uc-card__title">El aula se vuelve quirófano</h3>
+          <p class="uc-card__text">Con un visor, cada estudiante entra a un quirófano simulado y observa la fractura desde todos los ángulos.</p>
+        </article>
+        <article class="uc-card" data-step data-anim="fade-up">
+          <div class="uc-card__icon"><svg><use href="#i-cube"/></svg></div>
+          <span class="uc-chip">Realidad mixta</span>
+          <h3 class="uc-card__title">El modelo comparte el espacio</h3>
+          <p class="uc-card__text">El hombro queda anclado a la mesa: lo rodean, señalan la fractura y separan los huesos con las manos.</p>
+        </article>
+      </div>
+      <aside class="notes"><b>2:15–3:30</b> · Un clic por tarjeta. Clave: RA añade sin cambiar el aula; RV la reemplaza; RM mezcla y permite interactuar con lo digital como si estuviera ahí. La siguiente slide convierte el ejemplo de RA en una demo real.</aside>
+    </section>
+
+    <!-- ============ 05b · DEMO DE RA POR QR (dentro de 2:15–3:30) ============ -->
+    <section class="slide" id="demo-ra" data-transition="zoom">
+      <div class="l-split" style="grid-template-columns: 1fr 1.05fr">
+        <div class="xr-demo__text">
+          <p class="uc-overline" data-anim="fade-up">Pruébalo tú · Realidad aumentada</p>
+          <h2 class="uc-title" data-anim="fade-up">Una fractura de hombro <em>sobre tu mesa</em></h2>
+          <hr class="uc-divider" data-anim="grow-x">
+          <div class="xr-qr" data-anim="zoom">
+            <div class="xr-qr__code" aria-label="Código QR de la demo de realidad aumentada"></div>
+            <div class="xr-qr__info">
+              <ol class="xr-qr__steps">
+                <li>Escanea con la cámara del celular</li>
+                <li>Toca <strong>“Ver en mi mesa”</strong></li>
+                <li>Busca la fractura en la glenoide</li>
+              </ol>
+              <p class="xr-qr__url"></p>
+            </div>
+          </div>
+          <p class="xr-qr__warn" hidden>⚠ Estás en una dirección local: publica la presentación (HTTPS) para que el QR funcione en los celulares.</p>
+        </div>
+        <div class="xr-demo__stage" data-anim="mask" data-no-nav>
+          <model-viewer class="xr-demo__model" data-src="./models/hombro.glb"
+            alt="Modelo 3D de un hombro con fractura de la glenoide superior"
+            camera-controls auto-rotate auto-rotate-delay="0" rotation-per-second="18deg"
+            shadow-intensity="1" shadow-softness="0.8" exposure="1.05" environment-image="neutral"
+            camera-orbit="25deg 75deg auto" interaction-prompt="none" disable-tap></model-viewer>
+          <span class="xr-demo__hint">Arrastra para girar · rueda para acercar</span>
+        </div>
+      </div>
+      <aside class="notes"><b>≈ 1 min</b> · Pedir que escaneen el QR. Mientras cargan, girar el modelo en pantalla (arrastrar con el mouse). Pedir a una persona que muestre su celular con el hombro sobre la mesa. Fuente: NIH 3D, modelo 3DPX-000338 (CC0).</aside>
+    </section>
+
+    <!-- ============ 06 · EVOLUCIÓN (3:30–4:15) ============ -->
+    <section class="slide" data-transition="slide">
+      <header class="l-head">
+        <p class="uc-overline" data-anim="fade-up">Evolución de XR</p>
+        <h2 class="uc-title" data-anim="fade-up">De la estereoscopía al <em>bolsillo</em></h2>
+        <hr class="uc-divider" data-anim="grow-x">
+      </header>
+      <div class="l-stack">
+      <div class="uc-timeline">
+        <div class="uc-timeline__item" data-anim="fade-up"><p class="uc-timeline__date">1838</p><h3 class="uc-timeline__title">Visión estereoscópica</h3><p class="uc-timeline__text">Dos imágenes ligeramente distintas crean sensación de profundidad.</p></div>
+        <div class="uc-timeline__item" data-anim="fade-up"><p class="uc-timeline__date">1968</p><h3 class="uc-timeline__title">Primer visor</h3><p class="uc-timeline__text">Un casco conectado a un computador superpone gráficos a la vista.</p></div>
+        <div class="uc-timeline__item" data-anim="fade-up"><p class="uc-timeline__date">2010s</p><h3 class="uc-timeline__title">RA en el teléfono</h3><p class="uc-timeline__text">Cámara, GPS y sensores del móvil llevan la RA a millones de personas.</p></div>
+        <div class="uc-timeline__item" data-anim="fade-up"><p class="uc-timeline__date">Hoy</p><h3 class="uc-timeline__title">Visores autónomos</h3><p class="uc-timeline__text">Siguen las manos y el entorno sin cables ni computador externo.</p></div>
+      </div>
+      <div class="xr-enablers">
+        <span class="xr-enablers__label" data-anim="fade">Lo hizo posible:</span>
+        <span class="uc-chip uc-chip--solid" data-anim="pop">Sensores</span>
+        <span class="uc-chip uc-chip--solid" data-anim="pop">Inteligencia artificial</span>
+        <span class="uc-chip uc-chip--solid" data-anim="pop">Nube</span>
+        <span class="uc-chip uc-chip--solid" data-anim="pop">Conectividad</span>
+      </div>
+      </div>
+      <footer class="uc-footer"><img src="./assets/brand/logo-uc-icon.png" alt=""><span class="uc-footer__sep"></span><span>Realidad extendida</span></footer>
+      <aside class="notes"><b>3:30–4:15</b> · Solo 45 s. Recorrido rápido y cerrar con los cuatro habilitadores: sensores, IA, nube y conectividad. (Verifica las fechas con las del libro.)</aside>
+    </section>
+
+    <!-- ============ 07 · PANORAMA DE APLICACIONES (4:15–6:45) ============ -->
+    <section class="slide is-cream" data-transition="zoom">
+      <header class="l-head" style="margin-bottom:var(--space-5)">
+        <p class="uc-overline" data-anim="fade-up">Panorama de aplicaciones · capítulos 4 a 12</p>
+        <h2 class="uc-title" data-anim="fade-up">XR ya está en <em>nueve</em> ámbitos</h2>
+      </header>
+      <div class="xr-map">
+        <div class="xr-tile" data-step data-anim="zoom"><div class="xr-tile__icon"><svg><use href="#i-users"/></svg></div><h3>Vida cotidiana y empresa</h3><p>Comunicarnos, colaborar y trabajar en un mismo espacio.</p></div>
+        <div class="xr-tile" data-step data-anim="zoom"><div class="xr-tile__icon"><svg><use href="#i-bag"/></svg></div><h3>Comercio</h3><p>Probar un producto o ver el mueble en casa antes de comprar.</p></div>
+        <div class="xr-tile xr-tile--featured" data-step data-anim="pop"><span class="xr-tile__badge">Tema central</span><div class="xr-tile__icon"><svg><use href="#i-cap"/></svg></div><h3>Educación y formación</h3><p>Visitas, modelos 3D y simulaciones.</p></div>
+        <div class="xr-tile" data-step data-anim="zoom"><div class="xr-tile__icon"><svg><use href="#i-health"/></svg></div><h3>Salud</h3><p>Bienestar, diagnóstico, terapia y apoyo quirúrgico.</p></div>
+        <div class="xr-tile" data-step data-anim="zoom"><div class="xr-tile__icon"><svg><use href="#i-game"/></svg></div><h3>Entretenimiento y deporte</h3><p>Juegos, cine inmersivo, conciertos y entrenamiento.</p></div>
+        <div class="xr-tile" data-step data-anim="zoom"><div class="xr-tile__icon"><svg><use href="#i-building"/></svg></div><h3>Inmobiliaria y construcción</h3><p>Recorrer un inmueble o un diseño antes de construirlo.</p></div>
+        <div class="xr-tile" data-step data-anim="zoom"><div class="xr-tile__icon"><svg><use href="#i-pin"/></svg></div><h3>Turismo y hospitalidad</h3><p>Visitar el destino y el hotel antes de reservar.</p></div>
+        <div class="xr-tile" data-step data-anim="zoom"><div class="xr-tile__icon"><svg><use href="#i-wrench"/></svg></div><h3>Industria y manufactura</h3><p>Diseño, montaje guiado, inspección y logística.</p></div>
+        <div class="xr-tile" data-step data-anim="zoom"><div class="xr-tile__icon"><svg><use href="#i-shield"/></svg></div><h3>Seguridad y ámbito militar</h3><p>Entrenar situaciones críticas, con uso responsable.</p></div>
+      </div>
+      <aside class="notes"><b>4:15–6:45</b> · Nueve clics, ≈15 s por ámbito: una frase cada uno. Detenerse un poco más en Educación (tema central). En Seguridad y ámbito militar, mencionar la responsabilidad de uso.</aside>
+    </section>
+
+    <!-- ============ 08 · SECCIÓN EDUCACIÓN ============ -->
+    <section class="slide slide--section is-red" data-transition="wipe" data-no-chrome>
+      <div class="section__num" data-anim="slide-left" data-duration="1200">06</div>
+      <p class="uc-overline" data-anim="fade-up">Capítulo 6 · Educación y formación</p>
+      <h2 class="uc-title uc-title--display" data-split>Aprender <em>haciendo</em></h2>
+      <hr class="uc-divider" data-anim="grow-x" data-delay="500">
+      <p class="uc-lead" style="max-width:none" data-anim="fade-up" data-delay="600">El tema central de la clase.</p>
+    </section>
+
+    <!-- ============ 09 · EDUCACIÓN (6:45–7:15) ============ -->
+    <section class="slide" data-transition="slide">
+      <div class="l-split">
+        <div>
+          <p class="uc-overline" data-anim="fade-up">Educación y formación</p>
+          <h2 class="uc-title" data-anim="fade-up">Tres formas de aprender <em>haciendo</em></h2>
+          <hr class="uc-divider" data-anim="grow-x">
+          <ul class="uc-list" style="gap:32px">
+            <li data-step><strong>Visitas virtuales:</strong> llegar a lugares lejanos, costosos o inaccesibles.</li>
+            <li data-step><strong>Modelos tridimensionales:</strong> explorar por dentro lo que el libro muestra en 2D.</li>
+            <li data-step><strong>Simulaciones:</strong> practicar una habilidad, equivocarse y repetir sin consecuencias reales.</li>
+          </ul>
+        </div>
+        <div class="uc-photo" style="height:820px" data-anim="mask">
+          <img src="./assets/img/foto-laboratorio.jpg" alt="Estudiante practicando en un laboratorio" data-anim="kenburns">
+        </div>
+      </div>
+      <aside class="notes"><b>6:45–7:15</b> · Tres clics. Subrayar “simulaciones”: es la respuesta a la pregunta inicial y prepara el caso.</aside>
+    </section>
+
+    <!-- ============ 10 · CASO Y PARTICIPACIÓN (7:15–8:30) ============ -->
+    <section class="slide" id="caso" data-transition="up">
+      <header class="l-head" style="margin-bottom:var(--space-5)">
+        <p class="uc-overline" data-anim="fade-up">Tu turno · caso educativo</p>
+        <h2 class="uc-title" data-anim="fade-up">¿Qué tecnología <em>elegirías</em>?</h2>
+        <hr class="uc-divider" data-anim="grow-x">
+      </header>
+      <div class="l-split l-split--60" style="align-items:stretch">
+        <div style="display:flex; flex-direction:column; gap:32px; justify-content:center">
+          <div class="xr-case" data-anim="slide-right">
+            <p>Estudiantes de un programa de salud deben aprender a actuar ante un <strong>derrame de una sustancia química</strong> en el laboratorio.</p>
+            <p>Equivocarse en la vida real sería peligroso.</p>
+            <p class="xr-case__ask">Elige RA, RV o RM y justifica: ¿qué permite practicar? ¿qué limita?</p>
+          </div>
+          <button class="xr-timer" data-seconds="120" data-anim="fade-up">⏱ <span>2:00</span></button>
+        </div>
+        <div class="xr-options" style="justify-content:center">
+          <button class="xr-option" data-anim="slide-left"><span class="xr-option__fill"></span><span class="xr-option__icon"><svg><use href="#i-phone"/></svg></span><span class="xr-option__name">Realidad aumentada<small>Añade información al laboratorio real</small></span><span class="xr-option__votes">0</span></button>
+          <button class="xr-option" data-anim="slide-left"><span class="xr-option__fill"></span><span class="xr-option__icon"><svg><use href="#i-headset"/></svg></span><span class="xr-option__name">Realidad virtual<small>Un laboratorio completamente simulado</small></span><span class="xr-option__votes">0</span></button>
+          <button class="xr-option" data-anim="slide-left"><span class="xr-option__fill"></span><span class="xr-option__icon"><svg><use href="#i-cube"/></svg></span><span class="xr-option__name">Realidad mixta<small>El derrame virtual sobre la mesa real</small></span><span class="xr-option__votes">0</span></button>
+          <p class="xr-hint" data-anim="fade">Clic en una opción = +1 voto · Shift + clic = −1</p>
+        </div>
+      </div>
+      <aside class="notes"><b>7:15–8:30</b> · Leer el caso. Pedir que voten a mano alzada y registrar los votos con clic en cada opción. Iniciar el cronómetro (clic; doble clic lo reinicia) y pedir 2–3 justificaciones.</aside>
+    </section>
+
+    <!-- ============ 11 · ANÁLISIS DE LAS ELECCIONES (8:30–9:00) ============ -->
+    <section class="slide" data-transition="slide">
+      <header class="l-head">
+        <p class="uc-overline" data-anim="fade-up">Analicemos las elecciones</p>
+        <h2 class="uc-title" data-anim="fade-up">Cada tecnología aporta <em>algo distinto</em></h2>
+        <hr class="uc-divider" data-anim="grow-x">
+      </header>
+      <div class="l-stack">
+      <table class="uc-table xr-compare" data-anim="fade-up">
+        <thead><tr><th style="width:30%">En el caso del derrame…</th><th>RA</th><th>RV</th><th>RM</th></tr></thead>
+        <tbody>
+          <tr data-step data-anim="fade"><td>¿Ves el laboratorio real?</td><td class="yes">Sí</td><td>No</td><td class="yes">Sí</td></tr>
+          <tr data-step data-anim="fade"><td>¿Puedes equivocarte sin riesgo?</td><td>En parte</td><td class="yes">Sí, todo es simulado</td><td>En parte</td></tr>
+          <tr data-step data-anim="fade"><td>¿Usas el equipo real?</td><td class="yes">Sí, con guías digitales</td><td>No</td><td class="yes">Sí, con el derrame simulado</td></tr>
+          <tr data-step data-anim="fade"><td>Útil sobre todo para…</td><td>Seguir el protocolo paso a paso</td><td>Vivir la emergencia completa</td><td>Ensayar con el equipo real</td></tr>
+        </tbody>
+      </table>
+      <p class="xr-note" data-step>No hay una única respuesta: <span class="uc-hl">depende del objetivo de aprendizaje.</span></p>
+      </div>
+      <aside class="notes"><b>8:30–9:00</b> · Contrastar con los votos. Un clic por fila. Cerrar con la idea: la tecnología se elige según lo que se quiere aprender.</aside>
+    </section>
+
+    <!-- ============ 12 · DESAFÍOS (9:00–10:15) ============ -->
+    <section class="slide is-cream" data-transition="up">
+      <header class="l-head">
+        <p class="uc-overline" data-anim="fade-up">Desafíos de XR</p>
+        <h2 class="uc-title" data-anim="fade-up">Usarla de forma <em>responsable</em></h2>
+        <hr class="uc-divider" data-anim="grow-x">
+      </header>
+      <div class="l-stack">
+      <div class="l-grid-4">
+        <article class="uc-card" data-step data-anim="fade-up">
+          <div class="uc-card__icon"><svg><use href="#i-eye"/></svg></div>
+          <h3 class="uc-card__title">Privacidad</h3>
+          <p class="uc-card__text">Los dispositivos registran el espacio, los movimientos y hasta la mirada.</p>
+        </article>
+        <article class="uc-card" data-step data-anim="fade-up">
+          <div class="uc-card__icon"><svg><use href="#i-lock"/></svg></div>
+          <h3 class="uc-card__title">Seguridad</h3>
+          <p class="uc-card__text">Proteger esos datos y evitar golpes o caídas mientras estás inmerso.</p>
+        </article>
+        <article class="uc-card" data-step data-anim="fade-up">
+          <div class="uc-card__icon"><svg><use href="#i-scale"/></svg></div>
+          <h3 class="uc-card__title">Ética y legalidad</h3>
+          <p class="uc-card__text">¿Quién responde por los datos y por lo que ocurre dentro de la experiencia?</p>
+        </article>
+        <article class="uc-card" data-step data-anim="fade-up">
+          <div class="uc-card__icon"><svg><use href="#i-pulse"/></svg></div>
+          <h3 class="uc-card__title">Bienestar</h3>
+          <p class="uc-card__text">Mareo y fatiga visual: sesiones cortas y pausas.</p>
+        </article>
+      </div>
+      <p class="xr-note" data-step>En nuestro caso: ¿qué datos guarda la simulación? ¿cuánto debe durar cada sesión? <span class="uc-hl">Diseñar experiencias responsables</span> es parte del aprendizaje.</p>
+      </div>
+      <aside class="notes"><b>9:00–10:15</b> · Relacionar cada desafío con el caso del derrame: la simulación registra datos (privacidad), el estudiante se mueve con un visor (seguridad), ¿quién responde? (ética), y el mareo limita la duración (bienestar).</aside>
+    </section>
+
+    <!-- ============ 13 · FUTURO (10:15–11:00) ============ -->
+    <section class="slide" data-transition="slide">
+      <header class="l-head">
+        <p class="uc-overline" data-anim="fade-up">Futuro de XR</p>
+        <h2 class="uc-title" data-anim="fade-up">Dos líneas de <em>evolución</em></h2>
+        <hr class="uc-divider" data-anim="grow-x">
+      </header>
+      <div class="l-grid-2 l-fill" style="align-content:center; gap:var(--space-6)">
+        <article class="uc-card xr-line" data-anim="fade-up">
+          <div class="uc-card__icon"><svg><use href="#i-glasses"/></svg></div>
+          <h3 class="uc-card__title">Dispositivos más ligeros</h3>
+          <div class="xr-fact" data-step><span class="uc-chip uc-chip--solid">Comprobado hoy</span><p>Visores autónomos, sin cables, aunque aún voluminosos.</p></div>
+          <div class="xr-fact" data-step><span class="uc-chip uc-chip--ghost">Posibilidad</span><p>Gafas tan ligeras y cómodas como las de uso diario.</p></div>
+        </article>
+        <article class="uc-card xr-line" data-anim="fade-up">
+          <div class="uc-card__icon"><svg><use href="#i-hand"/></svg></div>
+          <h3 class="uc-card__title">Interfaces vinculadas al cuerpo</h3>
+          <div class="xr-fact" data-step><span class="uc-chip uc-chip--solid">Comprobado hoy</span><p>Seguimiento de manos y ojos en visores comerciales.</p></div>
+          <div class="xr-fact" data-step><span class="uc-chip uc-chip--ghost">Posibilidad</span><p>Sensaciones táctiles realistas e interfaces conectadas al cuerpo.</p></div>
+        </article>
+      </div>
+      <footer class="uc-footer"><img src="./assets/brand/logo-uc-icon.png" alt=""><span class="uc-footer__sep"></span><span>Realidad extendida</span></footer>
+      <aside class="notes"><b>10:15–11:00</b> · Dos líneas que plantea el autor. En cada una, distinguir con claridad lo que ya existe (rojo sólido) de lo que todavía es posibilidad (contorno).</aside>
+    </section>
+
+    <!-- ============ 14 · COMPROBACIÓN (11:00–11:45) ============ -->
+    <section class="slide is-red" data-transition="wipe">
+      <div class="uc-ring" style="width:900px;height:900px;right:-300px;bottom:-420px"></div>
+      <header class="l-head">
+        <p class="uc-overline" data-anim="fade-up">Comprobación</p>
+        <h2 class="uc-title uc-title--xl" data-anim="fade-up">Antes de irte, <em>responde</em></h2>
+        <hr class="uc-divider" data-anim="grow-x">
+      </header>
+      <ol class="uc-list uc-list--num l-fill" style="font-size:48px; gap:48px; align-content:center">
+        <li data-step><strong>Identifica</strong> una tecnología: RA, RV o RM.</li>
+        <li data-step><strong>Explica</strong> un beneficio que aporta al aprendizaje.</li>
+        <li data-step><strong>Señala</strong> un riesgo y cómo lo reducirías.</li>
+      </ol>
+      <aside class="notes"><b>11:00–11:45</b> · Un clic por pregunta. Pedir respuestas breves a dos o tres personas. Coinciden con los tres objetivos de la slide 3.</aside>
+    </section>
+
+    <!-- ============ 15 · CIERRE (11:45–12:00) ============ -->
+    <section class="slide is-dark" data-transition="zoom" data-no-chrome>
+      <div class="uc-ring" style="width:1100px;height:1100px;right:-380px;top:-300px" data-anim="spin-slow"></div>
+      <div class="l-center" style="gap:28px">
+        <img src="./assets/brand/logo-uc-horizontal.png" alt="Unicorsalud" class="uc-logo--white" style="height:110px" data-anim="fade-down">
+        <p class="uc-lead" style="max-width:none; margin-top:40px" data-anim="fade-up">¿Cómo practicar lo peligroso sin el peligro real?</p>
+        <h2 class="uc-title uc-title--xl" style="max-width:1500px" data-anim="blur">Con realidad extendida, <em>usada con responsabilidad</em></h2>
+        <hr class="uc-divider uc-divider--center" data-anim="grow-x">
+        <p class="uc-title" style="font-size:56px" data-anim="fade-up">Tu futuro <span class="uc-script" style="color:var(--uc-red-bright)">comienza</span> aquí</p>
+        <p class="uc-vigilada" style="margin-top:32px" data-anim="fade">*Vigilada MinEducación</p>
+      </div>
+      <aside class="notes"><b>11:45–12:00</b> · Recuperar la pregunta inicial y responderla en una frase. Agradecer.</aside>
+    </section>
+
+  </div>
+</main>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
