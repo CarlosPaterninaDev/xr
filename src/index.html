@@ -119,19 +119,19 @@
           <div class="uc-card__icon"><svg><use href="#i-phone"/></svg></div>
           <span class="uc-chip">Realidad aumentada</span>
           <h3 class="uc-card__title">El hombro aparece sobre el pupitre</h3>
-          <p class="uc-card__text">Con el celular, el grupo ve una fractura de hombro en 3D, a escala real, encima de la mesa.</p>
+          <p class="uc-card__text">Con el celular, el grupo ve una luxación de hombro en 3D, a escala real, encima de la mesa.</p>
         </article>
         <article class="uc-card" data-step data-anim="fade-up">
           <div class="uc-card__icon"><svg><use href="#i-headset"/></svg></div>
           <span class="uc-chip">Realidad virtual</span>
-          <h3 class="uc-card__title">El aula se vuelve quirófano</h3>
-          <p class="uc-card__text">Con un visor, cada estudiante entra a un quirófano simulado y observa la fractura desde todos los ángulos.</p>
+          <h3 class="uc-card__title">El aula se vuelve urgencias</h3>
+          <p class="uc-card__text">Con un visor, cada estudiante entra a una sala de urgencias simulada y examina la luxación desde todos los ángulos.</p>
         </article>
         <article class="uc-card" data-step data-anim="fade-up">
           <div class="uc-card__icon"><svg><use href="#i-cube"/></svg></div>
           <span class="uc-chip">Realidad mixta</span>
           <h3 class="uc-card__title">El modelo comparte el espacio</h3>
-          <p class="uc-card__text">El hombro queda anclado a la mesa: lo rodean, señalan la fractura y separan los huesos con las manos.</p>
+          <p class="uc-card__text">El hombro queda anclado a la mesa: lo rodean y devuelven la cabeza del húmero a su lugar con las manos.</p>
         </article>
       </div>
       <aside class="notes"><b>2:15–3:30</b> · Un clic por tarjeta. Clave: RA añade sin cambiar el aula; RV la reemplaza; RM mezcla y permite interactuar con lo digital como si estuviera ahí. La siguiente slide convierte el ejemplo de RA en una demo real.</aside>
@@ -142,7 +142,7 @@
       <div class="l-split" style="grid-template-columns: 1fr 1.05fr">
         <div class="xr-demo__text">
           <p class="uc-overline" data-anim="fade-up">Pruébalo tú · Realidad aumentada</p>
-          <h2 class="uc-title" data-anim="fade-up">Una fractura de hombro <em>sobre tu mesa</em></h2>
+          <h2 class="uc-title" data-anim="fade-up">Una luxación de hombro <em>sobre tu mesa</em></h2>
           <hr class="uc-divider" data-anim="grow-x">
           <div class="xr-qr" data-anim="zoom">
             <div class="xr-qr__code" aria-label="Código QR de la demo de realidad aumentada"></div>
@@ -150,7 +150,7 @@
               <ol class="xr-qr__steps">
                 <li>Escanea con la cámara del celular</li>
                 <li>Toca <strong>“Ver en mi mesa”</strong></li>
-                <li>Busca la fractura en la glenoide</li>
+                <li>Compara <strong>normal</strong> y <strong>luxación</strong></li>
               </ol>
               <p class="xr-qr__url"></p>
             </div>
@@ -159,14 +159,26 @@
         </div>
         <div class="xr-demo__stage" data-anim="mask" data-no-nav>
           <model-viewer class="xr-demo__model" data-src="./models/hombro.glb"
-            alt="Modelo 3D de un hombro con fractura de la glenoide superior"
+            alt="Modelo 3D de un hombro con luxación anterior"
             camera-controls auto-rotate auto-rotate-delay="0" rotation-per-second="18deg"
             shadow-intensity="1" shadow-softness="0.8" exposure="1.05" environment-image="neutral"
-            camera-orbit="25deg 75deg auto" interaction-prompt="none" disable-tap></model-viewer>
+            camera-orbit="25deg 75deg auto" interaction-prompt="none" disable-tap>
+            <div class="bone-tag" slot="hotspot-escapula" data-tag="escapula" data-position="0m 0m 0m">Escápula</div>
+            <div class="bone-tag" slot="hotspot-clavicula" data-tag="clavicula" data-position="0m 0m 0m">Clavícula</div>
+            <div class="bone-tag bone-tag--left" slot="hotspot-glenoide" data-tag="glenoide" data-position="0m 0m 0m">Cavidad glenoidea</div>
+            <div class="bone-tag" slot="hotspot-humero" data-tag="humero" data-position="0m 0m 0m">Húmero</div>
+            <div class="bone-tag bone-tag--caps" slot="hotspot-capsula" data-tag="capsula" data-position="0m 0m 0m">Cápsula articular</div>
+          </model-viewer>
           <span class="xr-demo__hint">Arrastra para girar · rueda para acercar</span>
+          <div class="lux" data-state="luxado">
+            <button class="lux__btn" data-lux="0">Normal</button>
+            <input class="lux__range" type="range" min="0" max="100" value="100" aria-label="Grado de luxación">
+            <button class="lux__btn" data-lux="1">Luxación</button>
+            <button class="lux__btn lux__tags" data-tags aria-pressed="true">Etiquetas</button>
+          </div>
         </div>
       </div>
-      <aside class="notes"><b>≈ 1 min</b> · Pedir que escaneen el QR. Mientras cargan, girar el modelo en pantalla (arrastrar con el mouse). Pedir a una persona que muestre su celular con el hombro sobre la mesa. Fuente: NIH 3D, modelo 3DPX-000338 (CC0).</aside>
+      <aside class="notes"><b>≈ 1 min</b> · Pedir que escaneen el QR. Mientras cargan, alternar Normal / Luxación (tecla <b>L</b> o los botones) y girar el modelo: la cabeza del húmero sale de la cavidad glenoidea hacia delante y abajo (luxación anterior, la más frecuente) y la cápsula articular se distiende (se pone roja). Tecla <b>E</b>: mostrar/ocultar etiquetas. Pedir a alguien que muestre su celular con el hombro sobre la mesa. Modelo: NIH 3D 3DPX-000338 (CC0); la luxación es una simulación didáctica.</aside>
     </section>
 
     <!-- ============ 06 · EVOLUCIÓN (3:30–4:15) ============ -->

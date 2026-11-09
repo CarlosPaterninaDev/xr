@@ -146,3 +146,35 @@
   padding: 10px 22px; border-radius: var(--radius-pill); background: rgba(255,255,255,.14); color: #fff;
   font: var(--fw-bold) 18px/1 var(--font-sans); letter-spacing: .02em; pointer-events: none; white-space: nowrap;
 }
+
+/* ---------- Control normal / luxación ---------- */
+.xr-demo__stage .lux { position: absolute; left: 50%; top: 28px; transform: translateX(-50%); }
+.xr-demo__stage .xr-demo__hint { bottom: 24px; }
+.lux {
+  display: inline-flex; align-items: center; gap: 18px; padding: 10px;
+  background: rgba(255,255,255,.12); backdrop-filter: blur(8px); border-radius: var(--radius-pill);
+}
+.lux__btn {
+  border: 0; cursor: pointer; padding: 14px 28px; border-radius: var(--radius-pill);
+  background: transparent; color: rgba(255,255,255,.75); font: var(--fw-bold) 24px/1 var(--font-sans);
+  transition: background .3s, color .3s;
+}
+.lux__btn.is-active { background: #fff; color: var(--uc-ink-strong); }
+[data-state="luxado"] .lux__btn[data-lux="1"].is-active { background: var(--uc-red); color: #fff; }
+.lux__range { width: 220px; accent-color: var(--uc-red); cursor: pointer; }
+
+/* ---------- Etiquetas de huesos (hotspots) ---------- */
+.bone-tag {
+  display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; pointer-events: none;
+  padding: 8px 16px 8px 10px; border-radius: var(--radius-pill);
+  background: rgba(255,255,255,.94); color: var(--uc-ink-strong); box-shadow: 0 4px 14px rgba(0,0,0,.35);
+  font: var(--fw-bold) 20px/1 var(--font-sans);
+  transform: translate(14px, -50%); transform-origin: left center; transition: background .3s, color .3s, opacity .3s;
+}
+.bone-tag::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--uc-red); box-shadow: 0 0 0 3px #fff; margin-left: -20px; margin-right: 6px; }
+.bone-tag.is-alert { background: var(--uc-red); color: #fff; }
+.bone-tag.is-alert::before { background: #fff; box-shadow: 0 0 0 3px var(--uc-red); }
+.tags-off .bone-tag { opacity: 0; }
+.lux__tags { margin-left: 4px; border: 2px solid rgba(255,255,255,.35) !important; }
+.bone-tag--left { flex-direction: row-reverse; transform: translate(calc(-100% - 14px), -50%); padding: 8px 10px 8px 16px; }
+.bone-tag--left::before { margin-left: 6px; margin-right: -20px; }

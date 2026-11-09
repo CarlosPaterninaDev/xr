@@ -65,3 +65,36 @@ model-viewer {
   font-size: 11px; color: var(--uc-gray);
 }
 .uc-vigilada { font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--uc-red); }
+
+/* Control normal / luxación */
+.lux {
+  display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 6px;
+  background: #fff; border-radius: var(--radius-pill); box-shadow: var(--shadow-sm);
+}
+.lux__btn {
+  flex: none; border: 0; cursor: pointer; padding: 10px 16px; border-radius: var(--radius-pill);
+  background: transparent; color: var(--uc-gray); font: var(--fw-bold) 15px/1 var(--font-sans);
+}
+.lux__btn.is-active { background: var(--uc-ink-strong); color: #fff; }
+[data-state="luxado"] .lux__btn[data-lux="1"].is-active { background: var(--uc-red); }
+.lux__range { flex: 1; min-width: 0; accent-color: var(--uc-red); }
+
+/* Etiquetas de huesos */
+.bone-tag {
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; pointer-events: none;
+  padding: 5px 10px 5px 6px; border-radius: var(--radius-pill);
+  background: rgba(255,255,255,.94); color: var(--uc-ink-strong); box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  font: var(--fw-bold) 11px/1 var(--font-sans);
+  transform: translate(8px, -50%); transition: background .3s, color .3s, opacity .3s;
+}
+.bone-tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--uc-red); box-shadow: 0 0 0 2px #fff; margin-left: -12px; margin-right: 3px; }
+.bone-tag.is-alert { background: var(--uc-red); color: #fff; }
+.bone-tag.is-alert::before { background: #fff; box-shadow: 0 0 0 2px var(--uc-red); }
+.tags-off .bone-tag { opacity: 0; }
+.ar-tools { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+.ar-tools .lux__btn { background: #fff; box-shadow: var(--shadow-sm); color: var(--uc-gray); }
+.ar-tools .lux__btn.is-active { background: var(--uc-ink-strong); color: #fff; }
+.ar-legend { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--uc-graphite); }
+.ar-legend i { width: 12px; height: 12px; border-radius: 3px; background: rgba(219,15,23,.8); }
+.bone-tag--left { flex-direction: row-reverse; transform: translate(calc(-100% - 8px), -50%); padding: 5px 6px 5px 10px; }
+.bone-tag--left::before { margin-left: 3px; margin-right: -12px; }

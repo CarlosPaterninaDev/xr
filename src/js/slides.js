@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import QRCode from 'qrcode';
+import { setupLuxation } from './luxation.js';
 
 /**
  * Lógica a medida por diapositiva, indexada por el `id` del <section>.
@@ -75,16 +76,27 @@ async function buildQr(slide) {
 }
 
 /** Carga model-viewer y el modelo en segundo plano para que la demo esté lista al llegar. */
-export async function preload() {
-  await import('@google/model-viewer');
-  document.querySelectorAll('model-viewer[data-src]').forEach((mv) => { mv.src = mv.dataset.src; });
+let modelReady;
+export function preload() {
+  modelReady ||= import('@google/model-viewer').then(() => {
+    document.querySelectorAll('model-viewer[data-src]').forEach((mv) => { mv.src = mv.dataset.src; });
+  });
+  return modelReady;
 }
 
 export default {
   'demo-ra': {
-    enter(slide) {
+    async enter(slide) {
       if (!slide.__qr) { slide.__qr = true; buildQr(slide); }
-      preload();
+      await preload();
+      if (!slide.__lux) {
+        slide.__lux = setupLuxation(slide.querySelector('model-viewer'), slide.querySelector('.lux'));
+        // Tecla L: alternar normal / luxación mientras esta slide está activa
+        addEventListener('keydown', (e) => {
+          if ((e.key === 'l' || e.key === 'L') && slide.classList.contains('is-active')) slide.__lux.toggle();
+          if ((e.key === 'e' || e.key === 'E') && slide.classList.contains('is-active')) slide.__lux.toggleTags();
+        });
+      }
     },
   },
 

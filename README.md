@@ -85,7 +85,9 @@ Para crear presets o transiciones nuevas, añádelos a `PRESETS` (animations.js)
 
 ## Demo de realidad aumentada (slide 6 + `ar.html`)
 
-- **Modelo:** *Shoulder Fracture – Superior Glenoid Fracture*, NIH 3D [3DPX-000338](https://3d.nih.gov/entries/338), dominio público (CC0). Original en `models-src/`; versión web (1,2 MB, en metros, color hueso) en `src/public/models/hombro.glb`, generada con `npm run model` (`RATIO=0.2 npm run model` = más detalle).
+- **Modelo:** base *Shoulder Fracture – Superior Glenoid Fracture*, NIH 3D [3DPX-000338](https://3d.nih.gov/entries/338), dominio público (CC0). Original en `models-src/`. `npm run model` genera `src/public/models/hombro.glb`: separa el húmero de la escápula y la clavícula, añade la animación `luxacion` (luxación anterior subcoracoidea **simulada con fines didácticos**: 0 s luxado → 1 s tracción → 2 s normal → … bucle de 4 s), lo pasa a metros, lo centra y lo colorea como hueso. Los desplazamientos se ajustan en `LUX` dentro de `scripts/prepare-model.mjs`.
+- **Control normal / luxación:** botones y deslizador en la slide 6 y en `ar.html`; en la slide, tecla **L** (luxación) y **E** (etiquetas).
+- **Etiquetas y cápsula:** `npm run model` también genera la cápsula articular (manguito translúcido con *skinning* que se estira con el húmero) y `src/js/hombro-data.json` con los puntos de las etiquetas. `src/js/luxation.js` mueve las etiquetas del húmero y la cápsula durante la animación y pinta la cápsula de rojo al luxarse.
 - **Slide 6:** QR + modelo girando en vivo (arrastrar para girar). El QR apunta a `ar.html` junto a la presentación, así que se ajusta solo al dominio donde la publiques.
 - **`ar.html`:** página para celular con `<model-viewer>`: botón "Ver en mi mesa" (Android → WebXR/Scene Viewer, iPhone → Quick Look, sin instalar apps). Si el equipo no soporta RA, el modelo se puede girar en pantalla.
 - **Requisito:** la RA en celulares exige **HTTPS** → hay que publicar la carpeta `dist/`. En local el QR muestra un aviso.

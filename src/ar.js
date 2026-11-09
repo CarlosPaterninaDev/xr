@@ -4,10 +4,13 @@ import '@fontsource/montserrat/900.css';
 import './styles/tokens.css';
 import './styles/ar.css';
 import '@google/model-viewer';
+import { setupLuxation } from './js/luxation.js';
 
 const viewer = document.getElementById('viewer');
 const status = document.getElementById('status');
 const bar = viewer.querySelector('.ar-progress span');
+
+setupLuxation(viewer, document.querySelector('.ar-main'));
 
 const say = (msg) => { status.textContent = msg; status.hidden = !msg; };
 
