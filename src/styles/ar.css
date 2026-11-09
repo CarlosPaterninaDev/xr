@@ -66,19 +66,30 @@ model-viewer {
 }
 .uc-vigilada { font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--uc-red); }
 
-/* Control normal / luxación */
+/* Controles normal / luxación (dentro del visor) */
+.ar-controls {
+  position: absolute; left: 10px; right: 10px; top: 12px; z-index: 2;
+  display: flex; align-items: center; gap: 8px;
+}
 .lux {
-  display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 6px;
-  background: #fff; border-radius: var(--radius-pill); box-shadow: var(--shadow-sm);
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; padding: 4px;
+  background: rgba(255,255,255,.14); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: var(--radius-pill);
 }
 .lux__btn {
-  flex: none; border: 0; cursor: pointer; padding: 10px 16px; border-radius: var(--radius-pill);
-  background: transparent; color: var(--uc-gray); font: var(--fw-bold) 15px/1 var(--font-sans);
+  flex: none; border: 0; cursor: pointer; padding: 10px 14px; border-radius: var(--radius-pill);
+  background: transparent; color: rgba(255,255,255,.8); font: var(--fw-bold) 14px/1 var(--font-sans);
 }
-.lux__btn.is-active { background: var(--uc-ink-strong); color: #fff; }
-[data-state="luxado"] .lux__btn[data-lux="1"].is-active { background: var(--uc-red); }
-.lux__range { flex: 1; min-width: 0; accent-color: var(--uc-red); }
+.lux__btn.is-active { background: #fff; color: var(--uc-ink-strong); }
+[data-state="luxado"] .lux__btn[data-lux="1"].is-active { background: var(--uc-red); color: #fff; }
+.lux__range { flex: 1; min-width: 30px; accent-color: var(--uc-red); }
+.lux__tags { background: rgba(255,255,255,.14); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.lux__tags.is-active { background: #fff; color: var(--uc-ink-strong); }
 
+/* En RA: controles abajo (arriba está el botón de salir) y más grandes para el pulgar */
+model-viewer:is([ar-status="session-started"], [ar-status="object-placed"]) .ar-controls { top: auto; bottom: max(24px, env(safe-area-inset-bottom)); left: 16px; right: 16px; }
+model-viewer:is([ar-status="session-started"], [ar-status="object-placed"]) .lux,
+model-viewer:is([ar-status="session-started"], [ar-status="object-placed"]) .lux__tags { background: rgba(0,0,0,.55); }
+model-viewer:is([ar-status="session-started"], [ar-status="object-placed"]) .lux__btn { padding: 14px 18px; font-size: 16px; }
 /* Etiquetas de huesos */
 .bone-tag {
   display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; pointer-events: none;
@@ -91,10 +102,7 @@ model-viewer {
 .bone-tag.is-alert { background: var(--uc-red); color: #fff; }
 .bone-tag.is-alert::before { background: #fff; box-shadow: 0 0 0 2px var(--uc-red); }
 .tags-off .bone-tag { opacity: 0; }
-.ar-tools { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
-.ar-tools .lux__btn { background: #fff; box-shadow: var(--shadow-sm); color: var(--uc-gray); }
-.ar-tools .lux__btn.is-active { background: var(--uc-ink-strong); color: #fff; }
-.ar-legend { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--uc-graphite); }
+.ar-legend { display: flex; align-items: center; gap: 6px; margin: 10px 0 0; font-size: 12px; color: var(--uc-graphite); }
 .ar-legend i { width: 12px; height: 12px; border-radius: 3px; background: rgba(219,15,23,.8); }
 .bone-tag--left { flex-direction: row-reverse; transform: translate(calc(-100% - 8px), -50%); padding: 5px 6px 5px 10px; }
 .bone-tag--left::before { margin-left: 3px; margin-right: -12px; }

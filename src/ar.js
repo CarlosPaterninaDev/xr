@@ -12,6 +12,9 @@ const bar = viewer.querySelector('.ar-progress span');
 
 setupLuxation(viewer, document.querySelector('.ar-main'));
 
+// En la RA del navegador (WebXR), tocar los controles no debe recolocar el modelo
+viewer.querySelector('.ar-controls').addEventListener('beforexrselect', (e) => e.preventDefault());
+
 const say = (msg) => { status.textContent = msg; status.hidden = !msg; };
 
 viewer.addEventListener('progress', (e) => {

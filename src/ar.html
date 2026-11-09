@@ -49,21 +49,26 @@
       <div class="bone-tag bone-tag--left" slot="hotspot-glenoide" data-tag="glenoide" data-position="0m 0m 0m">Cavidad glenoidea</div>
       <div class="bone-tag" slot="hotspot-humero" data-tag="humero" data-position="0m 0m 0m">Húmero</div>
       <div class="bone-tag bone-tag--caps" slot="hotspot-capsula" data-tag="capsula" data-position="0m 0m 0m">Cápsula articular</div>
+
+      <!-- Controles DENTRO del visor: así también aparecen sobre la cámara en la RA del navegador (WebXR) -->
+      <div class="ar-controls">
+        <div class="lux">
+          <button class="lux__btn" data-lux="0">Normal</button>
+          <input class="lux__range" type="range" min="0" max="100" value="100" aria-label="Grado de luxación">
+          <button class="lux__btn" data-lux="1">Luxación</button>
+        </div>
+        <button class="lux__btn lux__tags" data-tags aria-pressed="true">Etiquetas</button>
+      </div>
     </model-viewer>
 
-    <div class="lux" data-state="luxado">
-      <button class="lux__btn" data-lux="0">Normal</button>
-      <input class="lux__range" type="range" min="0" max="100" value="100" aria-label="Grado de luxación">
-      <button class="lux__btn" data-lux="1">Luxación</button>
-    </div>
-    <div class="ar-tools"><button class="lux__btn lux__tags" data-tags aria-pressed="true">Etiquetas</button><span class="ar-legend"><i></i>Cápsula articular: roja cuando está distendida</span></div>
+    <p class="ar-legend"><i></i>Cápsula articular: roja cuando está distendida</p>
 
     <p class="ar-status" id="status" hidden></p>
 
     <ol class="ar-steps">
       <li>Toca <strong>“Ver en mi mesa”</strong> y permite el acceso a la cámara.</li>
       <li>Mueve el celular despacio apuntando a la mesa hasta que aparezca el hombro.</li>
-      <li>Camina alrededor y cambia entre <strong>Normal</strong> y <strong>Luxación</strong>: observa dónde queda la cabeza del húmero.</li>
+      <li>Camina alrededor y cambia entre <strong>Normal</strong> y <strong>Luxación</strong> con los botones sobre la imagen: observa dónde queda la cabeza del húmero.</li>
     </ol>
   </main>
 
