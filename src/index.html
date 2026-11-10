@@ -59,11 +59,43 @@
       <div class="uc-ring" style="width:1100px;height:1100px;right:-380px;top:-300px" data-anim="spin-slow"></div>
       <div class="l-stack" style="max-width:1560px">
         <p class="uc-overline" data-anim="fade-up">Para empezar</p>
-        <h2 class="uc-title uc-title--xl" data-split>¿Cómo podríamos practicar una situación <em>peligrosa</em> sin exponernos al peligro real?</h2>
+        <h4 class="uc-title uc-title--l" data-split>
+          ¿Es suficiente lo que vemos a simple vista para entender algo?
+ 
+            <br>
+            <br>
+                   ¿Cómo podemos usar la tecnología para entender mejor lo que nos rodea?
+        </h4> 
         <hr class="uc-divider" data-anim="grow-x" data-delay="900">
-        <p class="uc-lead" style="max-width:none" data-step>Piensa tu respuesta: la retomaremos al final.</p>
+        <p class="uc-lead" style="max-width:none" data-step>Piensa en cómo la tecnología puede ayudarte a explorar y comprender tu entorno. Lo retomaremos al final.</p>
       </div>
+      <p class="xr-cite">Fuente: Marr (2021), introducción y cap. 1.</p>
       <aside class="notes"><b>0:00–1:00</b> · Lanzar la pregunta y escuchar UNA respuesta. Conectar: “Eso que describes es justo lo que permite la realidad extendida”. Clic para mostrar la frase final.</aside>
+    </section>
+
+    <!-- ============ 02b · DEMO DE RA POR QR ============ -->
+    <section class="slide" id="demo-ra" data-transition="zoom">
+      <div class="uc-ring" style="width:720px;height:720px;right:-220px;top:-200px" data-anim="spin-slow"></div>
+      <header class="l-head">
+        <p class="uc-overline" data-anim="fade-up">Pruébalo tú · Desde tu celular</p>
+        <h2 class="uc-title" data-anim="fade-up">Una luxación de hombro <em>en tus manos</em></h2>
+        <hr class="uc-divider" data-anim="grow-x">
+      </header>
+      <div class="xr-qr xr-qr--solo" data-anim="zoom">
+        <div class="xr-qr__code" aria-label="Código QR de la demo del hombro en 3D"></div>
+        <div class="xr-qr__info">
+          <ol class="xr-qr__steps">
+            <li>Escanea con la cámara del celular</li>
+            <li>Gira el hombro y compara <strong>normal</strong> y <strong>luxación</strong></li>
+            <li>Si tu celular lo permite, toca <strong>“Ver en mi mesa”</strong></li>
+          </ol>
+          <p class="xr-qr__url"></p>
+          <p class="xr-qr__warn" hidden>⚠ Estás en una dirección local: publica la presentación (HTTPS) para que el QR funcione en los celulares.</p>
+        </div>
+      </div>
+      <footer class="uc-footer"><img src="./assets/brand/logo-uc-icon.png" alt=""><span class="uc-footer__sep"></span><span>Realidad extendida</span></footer>
+      <p class="xr-cite">Modelo 3D: NIH 3D, 3DPX-000338 (CC0) · luxación: simulación de elaboración propia.</p>
+      <aside class="notes"><b>≈ 1 min</b> · Pedir que escaneen el QR. Todos ven el hombro en 3D en su celular; quienes tengan un equipo compatible pueden ponerlo sobre la mesa con “Ver en mi mesa”. Invitar a alternar Normal / Luxación: la cabeza del húmero sale de la cavidad glenoidea hacia delante y abajo (luxación anterior) y la cápsula articular se distiende. Modelo: NIH 3D 3DPX-000338 (CC0); la luxación es una simulación didáctica.</aside>
     </section>
 
     <!-- ============ 03 · OBJETIVO ============ -->
@@ -80,6 +112,7 @@
         <li data-anim="slide-right"><strong>Señalar</strong> un riesgo y cómo usarla con responsabilidad</li>
       </ol>
       <footer class="uc-footer"><img src="./assets/brand/logo-uc-icon.png" alt=""><span class="uc-footer__sep"></span><span>Realidad extendida</span></footer>
+      <p class="xr-cite">Elaboración propia a partir de Marr (2021), caps. 1 y 3.</p>
       <aside class="notes">Leer los tres verbos: identificar, explicar, señalar. Son exactamente lo que se pedirá en la comprobación final.</aside>
     </section>
 
@@ -90,21 +123,81 @@
         <h2 class="uc-title" data-anim="fade-up">XR: un término que <em>reúne</em> varias tecnologías</h2>
         <hr class="uc-divider" data-anim="grow-x">
       </header>
-      <div class="xr-spectrum">
-        <div class="xr-spectrum__label" data-anim="fade-down">XR · Realidad extendida</div>
-        <div class="xr-spectrum__track">
-          <div class="xr-spectrum__bar" data-anim="grow-x" data-duration="1000"></div>
-          <span class="xr-spectrum__end" data-anim="fade">Entorno real</span>
-          <span class="xr-spectrum__end xr-spectrum__end--right" data-anim="fade">Entorno simulado</span>
+      <div class="xr-hier" role="img" aria-label="Diagrama: la realidad extendida reúne la realidad aumentada, la realidad mixta y la realidad virtual, ordenadas del entorno real al entorno virtual">
+        <div class="xr-hier__box" data-anim="fade"><span class="xr-hier__boxlabel">XR · Realidad extendida</span></div>
+        <div class="xr-hier__axis" data-anim="grow-x" data-duration="1000"></div>
+        <span class="xr-hier__end" data-anim="fade">Entorno<br>real</span>
+        <span class="xr-hier__end xr-hier__end--right" data-anim="fade">Entorno<br>virtual</span>
+
+        <!-- RA · abajo -->
+        <div class="xr-node xr-node--down" style="left:18%" data-step data-anim="fade-up">
+          <span class="xr-node__dot"></span><span class="xr-node__stem"></span>
+          <svg class="xr-node__pic" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><clipPath id="pg-c1"><circle cx="100" cy="100" r="96"/></clipPath></defs>
+            <circle cx="100" cy="100" r="96" class="pg-bg-real"/>
+            <g clip-path="url(#pg-c1)">
+              <circle cx="78" cy="74" r="24" class="pg-ink"/>
+              <path d="M44 210 V130 a30 30 0 0 1 30 -30 h8 a30 30 0 0 1 30 30 V210 Z" class="pg-ink"/>
+              <path d="M104 118 L128 160" class="pg-arm"/>
+              <g class="pg-cube"><path d="M122 58 h40 v40 h-40 Z M134 46 h40 v40 h-40 Z" class="pg-cube-fill"/><path d="M122 58 h40 v40 h-40 Z M134 46 h40 v40 h-40 Z M122 58 l12 -12 M162 58 l12 -12 M162 98 l12 -12 M122 98 l12 -12"/></g>
+            </g>
+            <circle cx="100" cy="100" r="96" class="pg-ring-dash"/>
+          </svg>
+          <div class="xr-node__text xr-node__text--right">
+            <span class="uc-chip uc-chip--solid">RA</span>
+            <h3>Realidad aumentada</h3>
+            <p>Entorno físico + elementos virtuales</p>
+          </div>
         </div>
-        <div class="l-grid-3">
-          <div class="xr-point" data-step data-anim="fade-up"><span class="xr-point__dot"></span><span class="uc-chip uc-chip--solid">RA</span><h3>Realidad aumentada</h3><p>Añade elementos digitales a tu entorno.</p></div>
-          <div class="xr-point" data-step data-anim="fade-up"><span class="xr-point__dot"></span><span class="uc-chip uc-chip--solid">RM</span><h3>Realidad mixta</h3><p>Integra lo digital con el espacio físico y permite interactuar con ello.</p></div>
-          <div class="xr-point" data-step data-anim="fade-up"><span class="xr-point__dot"></span><span class="uc-chip uc-chip--solid">RV</span><h3>Realidad virtual</h3><p>Te sitúa dentro de un entorno simulado.</p></div>
+
+        <!-- RM · arriba -->
+        <div class="xr-node xr-node--up" style="left:50%" data-step data-anim="fade-down">
+          <span class="xr-node__dot"></span><span class="xr-node__stem"></span>
+          <svg class="xr-node__pic" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><clipPath id="pg-c2"><circle cx="100" cy="100" r="96"/></clipPath></defs>
+            <circle cx="100" cy="100" r="96" class="pg-bg-mix"/>
+            <g clip-path="url(#pg-c2)">
+              <rect x="0" y="0" width="200" height="200" class="pg-bg-virt" style="clip-path: inset(0 50% 0 0)"/>
+              <circle cx="110" cy="84" r="24" class="pg-ink"/>
+              <path d="M76 210 V140 a30 30 0 0 1 30 -30 h8 a30 30 0 0 1 30 30 V210 Z" class="pg-ink"/>
+              <path d="M84 126 L58 70" class="pg-arm"/>
+              <g class="pg-cube pg-cube--wire"><path d="M38 40 h26 v26 h-26 Z M46 32 h26 v26 h-26 Z M38 40 l8 -8 M64 40 l8 -8 M64 66 l8 -8 M38 66 l8 -8"/></g>
+            </g>
+            <circle cx="100" cy="100" r="92" class="pg-ring-solid"/>
+          </svg>
+          <div class="xr-node__text xr-node__text--right">
+            <span class="uc-chip uc-chip--solid">RM</span>
+            <h3>Realidad mixta</h3>
+            <p>Entornos físico y virtual, con interacción</p>
+          </div>
+        </div>
+
+        <!-- RV · abajo -->
+        <div class="xr-node xr-node--down" style="left:82%" data-step data-anim="fade-up">
+          <span class="xr-node__dot"></span><span class="xr-node__stem"></span>
+          <svg class="xr-node__pic" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><clipPath id="pg-c3"><circle cx="100" cy="100" r="96"/></clipPath></defs>
+            <circle cx="100" cy="100" r="96" class="pg-bg-real"/>
+            <g clip-path="url(#pg-c3)">
+              <rect x="22" y="14" width="156" height="200" rx="6" class="pg-bg-virt"/>
+              <circle cx="110" cy="84" r="24" class="pg-ink"/>
+              <rect x="88" y="72" width="48" height="20" rx="9" class="pg-visor"/>
+              <path d="M76 210 V140 a30 30 0 0 1 30 -30 h8 a30 30 0 0 1 30 30 V210 Z" class="pg-ink"/>
+              <path d="M84 126 L56 74" class="pg-arm"/>
+              <path d="M138 128 L166 176" class="pg-arm"/>
+            </g>
+            <circle cx="100" cy="100" r="96" class="pg-ring-dash"/>
+          </svg>
+          <div class="xr-node__text xr-node__text--left">
+            <span class="uc-chip uc-chip--solid">RV</span>
+            <h3>Realidad virtual</h3>
+            <p>Entorno virtual: te sitúa dentro de él</p>
+          </div>
         </div>
       </div>
       <footer class="uc-footer"><img src="./assets/brand/logo-uc-icon.png" alt=""><span class="uc-footer__sep"></span><span>Realidad extendida</span></footer>
-      <aside class="notes"><b>1:00–2:15</b> · XR es el paraguas. Tres clics: RA (añade), RM (integra e interactúa), RV (sitúa en un entorno simulado), siguiendo la distinción del autor. Insistir: de izquierda a derecha, cada vez hay menos mundo real.</aside>
+      <p class="xr-cite">Fuente: adaptado de Marr (2021), cap. 1.</p>
+      <aside class="notes"><b>1:00–2:15</b> · XR es el paraguas (el recuadro): las tres tecnologías viven dentro de ella. Tres clics: RA (entorno físico + elementos virtuales), RM (entornos físico y virtual, con interacción), RV (entorno virtual), siguiendo la figura del autor. Insistir: de izquierda a derecha, cada vez hay menos mundo real.</aside>
     </section>
 
     <!-- ============ 05 · UNA MISMA AULA (2:15–3:30) ============ -->
@@ -122,63 +215,20 @@
           <p class="uc-card__text">Con el celular, el grupo ve una luxación de hombro en 3D, a escala real, encima de la mesa.</p>
         </article>
         <article class="uc-card" data-step data-anim="fade-up">
-          <div class="uc-card__icon"><svg><use href="#i-headset"/></svg></div>
-          <span class="uc-chip">Realidad virtual</span>
-          <h3 class="uc-card__title">El aula se vuelve urgencias</h3>
-          <p class="uc-card__text">Con un visor, cada estudiante entra a una sala de urgencias simulada y examina la luxación desde todos los ángulos.</p>
-        </article>
-        <article class="uc-card" data-step data-anim="fade-up">
           <div class="uc-card__icon"><svg><use href="#i-cube"/></svg></div>
           <span class="uc-chip">Realidad mixta</span>
           <h3 class="uc-card__title">El modelo comparte el espacio</h3>
           <p class="uc-card__text">El hombro queda anclado a la mesa: lo rodean y devuelven la cabeza del húmero a su lugar con las manos.</p>
         </article>
+        <article class="uc-card" data-step data-anim="fade-up">
+          <div class="uc-card__icon"><svg><use href="#i-headset"/></svg></div>
+          <span class="uc-chip">Realidad virtual</span>
+          <h3 class="uc-card__title">El aula se vuelve urgencias</h3>
+          <p class="uc-card__text">Con un visor, cada estudiante entra a una sala de urgencias simulada y examina la luxación desde todos los ángulos.</p>
+        </article>
       </div>
-      <aside class="notes"><b>2:15–3:30</b> · Un clic por tarjeta. Clave: RA añade sin cambiar el aula; RV la reemplaza; RM mezcla y permite interactuar con lo digital como si estuviera ahí. La siguiente slide convierte el ejemplo de RA en una demo real.</aside>
-    </section>
-
-    <!-- ============ 05b · DEMO DE RA POR QR (dentro de 2:15–3:30) ============ -->
-    <section class="slide" id="demo-ra" data-transition="zoom">
-      <div class="l-split" style="grid-template-columns: 1fr 1.05fr">
-        <div class="xr-demo__text">
-          <p class="uc-overline" data-anim="fade-up">Pruébalo tú · Realidad aumentada</p>
-          <h2 class="uc-title" data-anim="fade-up">Una luxación de hombro <em>sobre tu mesa</em></h2>
-          <hr class="uc-divider" data-anim="grow-x">
-          <div class="xr-qr" data-anim="zoom">
-            <div class="xr-qr__code" aria-label="Código QR de la demo de realidad aumentada"></div>
-            <div class="xr-qr__info">
-              <ol class="xr-qr__steps">
-                <li>Escanea con la cámara del celular</li>
-                <li>Toca <strong>“Ver en mi mesa”</strong></li>
-                <li>Compara <strong>normal</strong> y <strong>luxación</strong></li>
-              </ol>
-              <p class="xr-qr__url"></p>
-            </div>
-          </div>
-          <p class="xr-qr__warn" hidden>⚠ Estás en una dirección local: publica la presentación (HTTPS) para que el QR funcione en los celulares.</p>
-        </div>
-        <div class="xr-demo__stage" data-anim="mask" data-no-nav>
-          <model-viewer class="xr-demo__model" data-src="./models/hombro.glb"
-            alt="Modelo 3D de un hombro con luxación anterior"
-            camera-controls auto-rotate auto-rotate-delay="0" rotation-per-second="18deg"
-            shadow-intensity="1" shadow-softness="0.8" exposure="1.05" environment-image="neutral"
-            camera-orbit="25deg 75deg auto" interaction-prompt="none" disable-tap>
-            <div class="bone-tag" slot="hotspot-escapula" data-tag="escapula" data-position="0m 0m 0m">Escápula</div>
-            <div class="bone-tag" slot="hotspot-clavicula" data-tag="clavicula" data-position="0m 0m 0m">Clavícula</div>
-            <div class="bone-tag bone-tag--left" slot="hotspot-glenoide" data-tag="glenoide" data-position="0m 0m 0m">Cavidad glenoidea</div>
-            <div class="bone-tag" slot="hotspot-humero" data-tag="humero" data-position="0m 0m 0m">Húmero</div>
-            <div class="bone-tag bone-tag--caps" slot="hotspot-capsula" data-tag="capsula" data-position="0m 0m 0m">Cápsula articular</div>
-          </model-viewer>
-          <span class="xr-demo__hint">Arrastra para girar · rueda para acercar</span>
-          <div class="lux" data-state="luxado">
-            <button class="lux__btn" data-lux="0">Normal</button>
-            <input class="lux__range" type="range" min="0" max="100" value="100" aria-label="Grado de luxación">
-            <button class="lux__btn" data-lux="1">Luxación</button>
-            <button class="lux__btn lux__tags" data-tags aria-pressed="true">Etiquetas</button>
-          </div>
-        </div>
-      </div>
-      <aside class="notes"><b>≈ 1 min</b> · Pedir que escaneen el QR. Mientras cargan, alternar Normal / Luxación (tecla <b>L</b> o los botones) y girar el modelo: la cabeza del húmero sale de la cavidad glenoidea hacia delante y abajo (luxación anterior, la más frecuente) y la cápsula articular se distiende (se pone roja). Tecla <b>E</b>: mostrar/ocultar etiquetas. Pedir a alguien que muestre su celular con el hombro sobre la mesa. Modelo: NIH 3D 3DPX-000338 (CC0); la luxación es una simulación didáctica.</aside>
+      <p class="xr-cite">Elaboración propia a partir de Marr (2021), cap. 1.</p>
+      <aside class="notes"><b>2:15–3:30</b> · Un clic por tarjeta. Mismo orden que el espectro: RA añade sin cambiar el aula; RM mezcla y permite interactuar con lo digital como si estuviera ahí; RV reemplaza el aula. Recordar la demo del QR como ejemplo de RA.</aside>
     </section>
 
     <!-- ============ 06 · EVOLUCIÓN (3:30–4:15) ============ -->
@@ -204,6 +254,7 @@
       </div>
       </div>
       <footer class="uc-footer"><img src="./assets/brand/logo-uc-icon.png" alt=""><span class="uc-footer__sep"></span><span>Realidad extendida</span></footer>
+      <p class="xr-cite">Fuente: Marr (2021), cap. 2.</p>
       <aside class="notes"><b>3:30–4:15</b> · Solo 45 s. Recorrido rápido y cerrar con los cuatro habilitadores: sensores, IA, nube y conectividad. (Verifica las fechas con las del libro.)</aside>
     </section>
 
@@ -224,6 +275,7 @@
         <div class="xr-tile" data-step data-anim="zoom"><div class="xr-tile__icon"><svg><use href="#i-wrench"/></svg></div><h3>Industria y manufactura</h3><p>Diseño, montaje guiado, inspección y logística.</p></div>
         <div class="xr-tile" data-step data-anim="zoom"><div class="xr-tile__icon"><svg><use href="#i-shield"/></svg></div><h3>Seguridad y ámbito militar</h3><p>Entrenar situaciones críticas, con uso responsable.</p></div>
       </div>
+      <p class="xr-cite">Fuente: Marr (2021), caps. 4–12.</p>
       <aside class="notes"><b>4:15–6:45</b> · Nueve clics, ≈15 s por ámbito: una frase cada uno. Detenerse un poco más en Educación (tema central). En Seguridad y ámbito militar, mencionar la responsabilidad de uso.</aside>
     </section>
 
@@ -234,7 +286,8 @@
       <h2 class="uc-title uc-title--display" data-split>Aprender <em>haciendo</em></h2>
       <hr class="uc-divider" data-anim="grow-x" data-delay="500">
       <p class="uc-lead" style="max-width:none" data-anim="fade-up" data-delay="600">El tema central de la clase.</p>
-    </section>
+          <p class="xr-cite">Fuente: Marr (2021), cap. 6.</p>
+</section>
 
     <!-- ============ 09 · EDUCACIÓN (6:45–7:15) ============ -->
     <section class="slide" data-transition="slide">
@@ -253,6 +306,7 @@
           <img src="./assets/img/foto-laboratorio.jpg" alt="Estudiante practicando en un laboratorio" data-anim="kenburns">
         </div>
       </div>
+      <p class="xr-cite">Elaboración propia a partir de Marr (2021), cap. 6.</p>
       <aside class="notes"><b>6:45–7:15</b> · Tres clics. Subrayar “simulaciones”: es la respuesta a la pregunta inicial y prepara el caso.</aside>
     </section>
 
@@ -279,6 +333,7 @@
           <p class="xr-hint" data-anim="fade">Clic en una opción = +1 voto · Shift + clic = −1</p>
         </div>
       </div>
+      <p class="xr-cite">Elaboración propia a partir de Marr (2021), cap. 6.</p>
       <aside class="notes"><b>7:15–8:30</b> · Leer el caso. Pedir que voten a mano alzada y registrar los votos con clic en cada opción. Iniciar el cronómetro (clic; doble clic lo reinicia) y pedir 2–3 justificaciones.</aside>
     </section>
 
@@ -301,6 +356,7 @@
       </table>
       <p class="xr-note" data-step>No hay una única respuesta: <span class="uc-hl">depende del objetivo de aprendizaje.</span></p>
       </div>
+      <p class="xr-cite">Elaboración propia a partir de Marr (2021), cap. 6.</p>
       <aside class="notes"><b>8:30–9:00</b> · Contrastar con los votos. Un clic por fila. Cerrar con la idea: la tecnología se elige según lo que se quiere aprender.</aside>
     </section>
 
@@ -336,6 +392,7 @@
       </div>
       <p class="xr-note" data-step>En nuestro caso: ¿qué datos guarda la simulación? ¿cuánto debe durar cada sesión? <span class="uc-hl">Diseñar experiencias responsables</span> es parte del aprendizaje.</p>
       </div>
+      <p class="xr-cite">Fuente: Marr (2021), cap. 3.</p>
       <aside class="notes"><b>9:00–10:15</b> · Relacionar cada desafío con el caso del derrame: la simulación registra datos (privacidad), el estudiante se mueve con un visor (seguridad), ¿quién responde? (ética), y el mareo limita la duración (bienestar).</aside>
     </section>
 
@@ -361,6 +418,7 @@
         </article>
       </div>
       <footer class="uc-footer"><img src="./assets/brand/logo-uc-icon.png" alt=""><span class="uc-footer__sep"></span><span>Realidad extendida</span></footer>
+      <p class="xr-cite">Fuente: Marr (2021), cap. 13.</p>
       <aside class="notes"><b>10:15–11:00</b> · Dos líneas que plantea el autor. En cada una, distinguir con claridad lo que ya existe (rojo sólido) de lo que todavía es posibilidad (contorno).</aside>
     </section>
 
@@ -377,6 +435,7 @@
         <li data-step><strong>Explica</strong> un beneficio que aporta al aprendizaje.</li>
         <li data-step><strong>Señala</strong> un riesgo y cómo lo reducirías.</li>
       </ol>
+      <p class="xr-cite">Elaboración propia a partir de Marr (2021), caps. 1 y 3.</p>
       <aside class="notes"><b>11:00–11:45</b> · Un clic por pregunta. Pedir respuestas breves a dos o tres personas. Coinciden con los tres objetivos de la slide 3.</aside>
     </section>
 
@@ -391,6 +450,7 @@
         <p class="uc-title" style="font-size:56px" data-anim="fade-up">Tu futuro <span class="uc-script" style="color:var(--uc-red-bright)">comienza</span> aquí</p>
         <p class="uc-vigilada" style="margin-top:32px" data-anim="fade">*Vigilada MinEducación</p>
       </div>
+      <p class="xr-cite">Elaboración propia a partir de Marr (2021), caps. 1 y 3.</p>
       <aside class="notes"><b>11:45–12:00</b> · Recuperar la pregunta inicial y responderla en una frase. Agradecer.</aside>
     </section>
 

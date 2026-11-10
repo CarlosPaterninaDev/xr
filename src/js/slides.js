@@ -1,6 +1,5 @@
 import { gsap } from 'gsap';
 import QRCode from 'qrcode';
-import { setupLuxation } from './luxation.js';
 
 /**
  * Lógica a medida por diapositiva, indexada por el `id` del <section>.
@@ -56,7 +55,7 @@ function bindCase(slide) {
   paint();
 }
 
-// ---------- Slide "demo-ra": QR hacia ar.html + modelo 3D en vivo ----------
+// ---------- Slide "demo-ra": QR hacia ar.html (el modelo 3D se ve en el celular) ----------
 // URL del QR: ?ar=https://… en la URL de la presentación, o data-ar-url en la slide;
 // por defecto, ar.html junto a esta página (funciona en cualquier hosting).
 function arUrl(slide) {
@@ -75,28 +74,10 @@ async function buildQr(slide) {
   slide.querySelector('.xr-qr__warn').hidden = !(isLocal() && !new URLSearchParams(location.search).get('ar'));
 }
 
-/** Carga model-viewer y el modelo en segundo plano para que la demo esté lista al llegar. */
-let modelReady;
-export function preload() {
-  modelReady ||= import('@google/model-viewer').then(() => {
-    document.querySelectorAll('model-viewer[data-src]').forEach((mv) => { mv.src = mv.dataset.src; });
-  });
-  return modelReady;
-}
-
 export default {
   'demo-ra': {
-    async enter(slide) {
+    enter(slide) {
       if (!slide.__qr) { slide.__qr = true; buildQr(slide); }
-      await preload();
-      if (!slide.__lux) {
-        slide.__lux = setupLuxation(slide.querySelector('model-viewer'), slide.querySelector('.lux'));
-        // Tecla L: alternar normal / luxación mientras esta slide está activa
-        addEventListener('keydown', (e) => {
-          if ((e.key === 'l' || e.key === 'L') && slide.classList.contains('is-active')) slide.__lux.toggle();
-          if ((e.key === 'e' || e.key === 'E') && slide.classList.contains('is-active')) slide.__lux.toggleTags();
-        });
-      }
     },
   },
 
